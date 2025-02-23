@@ -171,14 +171,14 @@
     var dogRotationCenter = new BABYLON.TransformNode("dogRoot");
     const dogSpeed = -0.005;
 
-    BABYLON.SceneLoader.ImportMeshAsync("", "/assets/", "icosphere.obj", scene).then((result) => {
+    BABYLON.SceneLoader.ImportMeshAsync("", "./assets/", "icosphere.obj", scene).then((result) => {
         var ground = result.meshes[0];
         ground.material = groundMaterial;
         ground.receiveShadows = true;
         ground.scaling = new BABYLON.Vector3(groundRadius, groundRadius, groundRadius);
     });
 
-    BABYLON.SceneLoader.ImportMeshAsync("", "/assets/", "dog2.glb", scene).then((result) => {
+    BABYLON.SceneLoader.ImportMeshAsync("", "./assets/", "dog2.glb", scene).then((result) => {
         result.animationGroups[0].stop();
         var dogAnim = scene.getAnimationGroupByName("Run");
         dogAnim.play(true);
@@ -199,7 +199,7 @@
 
     function generatePlants(name, sizes, placements)
     {
-        BABYLON.SceneLoader.ImportMeshAsync("", "/assets/", `${name}.obj`, scene).then((result) => {
+        BABYLON.SceneLoader.ImportMeshAsync("", "./assets/", `${name}.obj`, scene).then((result) => {
             const mesh = result.meshes[0];
             mesh.material = plantMaterial;
             mesh.receiveShadows = true;
